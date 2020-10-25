@@ -162,3 +162,13 @@ console.log(Number.MAX_SAFE_INTEGER);
 - const fnc = () => ({name:"Hello"}) //this와 arguments가 바인딩 되지 않습니다.
 
 ### 4. this
+
+- 함수 내부에 this라는 키워드를 사용할 수 있습니다.
+- 화살표 함수에서의 this는 화살표 함수가 생성될 떄의 this를 가르키게 된다.
+- 일반함수는 함수가 실행될 때 this바인딩이 이루어 진다.
+
+## 5️⃣ 프로미스
+
+- 자바스크립트의 비동기 처리.
+  - 프로미스 (pending -> fulfilled or rejected) settled
+  - 콜백
