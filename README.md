@@ -72,3 +72,54 @@
   console.log(typeof []);
   //object
   ```
+
+### 2. number 타입
+
+- parseFloat 실수 파싱
+- parseInt 숫자 까지만 파싱합니다.
+
+  ```javascript
+  const num1 = parseInt("123asb"); // 123
+  ```
+
+- NaN (Not a Number) [isNaN(NaN)으로 비교가능]
+- Infinity
+
+```javascript
+//자바스크립트의 number는 64 bit 부동소수점(float point) 방식을 사용합니다.
+// 부호(signed) 1bit, 지수부(exponent) 11bits, 가수부(fraction) 52bits
+// (-1)^부호(부호담당) * 가수부(표현력) * 2^지수부(크기)
+// 53bits prection
+
+// -(2^53-1) ~ (2^53 -1 )
+// 9007199254740991, 약 16자리
+console.log(Math.pow(2, 53) - 1);
+console.log(Number.MIN_SAFE_INTEGER);
+console.log(Number.MAX_SAFE_INTEGER);
+```
+
+### 3. string 타입
+
+- '', "", ``로 표현 할 수 있습니다,
+
+### 4. boolean 타입, nullish coalescing
+
+- &&, ||, !, !!, ??
+
+### 5. object 타입, array
+
+## 3️⃣ 객체와 배열의 주요 기능
+
+### 1. spread operator 및 편의기능
+
+- [...[1,2,3]] => [1,2,3]
+
+### 2. destructuring
+
+- const [a = 10, b = 30 ] = [1,3] // a = 1, b = 3
+- const {age:theAge, name} = {age:1,name:'dev'}
+
+### 3. optional chaining
+
+- const person = {age:1}
+  - person?.age
