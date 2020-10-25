@@ -123,3 +123,42 @@ console.log(Number.MAX_SAFE_INTEGER);
 
 - const person = {age:1}
   - person?.age
+
+## 4️⃣ 함수
+
+### 1. 일급 함수 및 콜 스택
+
+- 함수가 다른 함수처럼 취급되면 일급함수라고 할 수 있다.
+
+  - 변수에 할당
+  - 매개면수로 전달
+  - 함수내부에서 함수를 반환한다.
+
+- 클로저
+
+  - 함수와 함수를 둘러싸고 있는 상태를 말한다.
+  - 자바스크립트 엔진은 함수가 종료되더라도 그 환경을 기역한다.
+
+- 콜스택
+  - 실행정보를 저장하기위한 스택을 가지고 있다.
+  - excution context
+  - global 실행 콘텍스트
+  - 함수 실행을 만나면 콜스택에 넣고 함수 실행 콘텍스트가 만들어 진다.
+  - 지역변수 정보를 가지고 있는 것을 lexical environment라고 한다.
+  - outerReperenceEnviroment
+
+### 2. lexical environment
+
+- global 실행컨텍스트 > lexical enveronment(변수 맵이라고 생각하면 됩니다. )
+  - environment record
+  - outer environment referenceb
+
+### 3. 함수 정의 방법
+
+- function fnc(a = ()=>{console.log("값을 입력해 주세요)}){}
+- function fnc(a, ...rest){} => fnc(1,2,3){}
+- function fnc({name = "Hello", age=10}){}
+- function fnc({name = "Hello", ...reset}){}
+- const fnc = () => ({name:"Hello"}) //this와 arguments가 바인딩 되지 않습니다.
+
+### 4. this
