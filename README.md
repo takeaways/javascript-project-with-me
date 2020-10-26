@@ -170,5 +170,14 @@ console.log(Number.MAX_SAFE_INTEGER);
 ## 5️⃣ 프로미스
 
 - 자바스크립트의 비동기 처리.
+
   - 프로미스 (pending -> fulfilled or rejected) settled
   - 콜백
+
+- 병렬로 프로미스 처리 하기.
+
+  - Promise.all([pro1, pro2]).then(([j1,j2])=>{}) // 모두
+  - Promise.race([pro1, pro2]).then(([j1,j2])=>{}) // 가장 처음
+
+- async, await
+ 
