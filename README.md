@@ -180,4 +180,43 @@ console.log(Number.MAX_SAFE_INTEGER);
   - Promise.race([pro1, pro2]).then(([j1,j2])=>{}) // 가장 처음
 
 - async, await
- 
+
+## 6️⃣ 클래스
+
+## 7️⃣ 모듈 시스템
+
+- ESM 모듈 시스템
+- 하나의 파일이 하나의 모듈이다.
+
+## 8️⃣ 자바스크립트 생태계
+
+### 1. webpack
+
+- 모듈 번들러
+- 오래된 코드에서도 모듈을 사용 할 수 있게 도와준다.
+
+### 2. 바벨
+
+- 입출력이 자바스크립트인 컴파일러
+- 자바스크립트가 아닌 문법을 자바스크립트로 만들어 주는 역할을 합니다.
+
+### 3. 폴리필
+
+- 바벨과 폴리필 모두 오래된 브라우저를 지원하기 위해서 사용되며 차이점은 폴리필은 런타임에 바벨은 컴파일 타임에 실행된다.
+- 폴리빌은 런타임환경에 필요할 때만 기능을 주입한다.
+
+### 4. eslint
+
+- 정적 코드 분석기
+- 코드 컨벤션 검사용도로 사용
+- npx eslint --init
+
+### 5. prettier
+
+- 코드 포멧터
+- 자동으로 코드를 정리해준다.
+- setting
+  - formatterOnSave
+  - formatter
+    - Default Formatter
+      - esbenp.prettier-vscode 체크
