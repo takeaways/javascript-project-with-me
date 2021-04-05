@@ -3,3 +3,6 @@
 vs code extension
 - color hightlight
 - live server
+
+## Project list
+[quote generator]("https://nomadgeoniljang.github.io/javascript-project-with-me/quote-generator/)
