@@ -4,5 +4,7 @@ vs code extension
 - color hightlight
 - live server
 
+![infinite scroll](./images/scroll.png)
 ## Project list
 [1.quote generator](./quote-generator)
+[2.infinite scroll](./infinite-scroll)
