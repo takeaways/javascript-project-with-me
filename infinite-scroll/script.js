@@ -7,22 +7,35 @@ const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${API_KEY}&cou
 const imageContainer = document.querySelector("#image-container");
 
 
+// Helper function to set attributes on Dom Element
+function setAttribute(element, attribute){
+    for(const key in attribute){
+        element.setAttribute(key, attribute[key])
+    }
+}
+
 // create elements for links and Photos, add to dom
 function displayPhotos(){
     const template = document.createDocumentFragment();
     photos.forEach(photo => {
         const item = document.createElement('a');
-        item.setAttribute('href',photo.links.html);
-        item.setAttribute('target','_blank');
-        
         const img = document.createElement('img');
-        img.setAttribute('src',photo.urls.regular);
-        img.setAttribute('alt',photo.alt_description);
-        img.setAttribute('title',photo.alt_description);
+
+        setAttribute(item, {
+            href:photo.links.html,
+            target:'_blank'
+        })
+        
+        setAttribute(img, {
+            src:photo.urls.regular,
+            alt:photo.alt_description,
+            title:photo.alt_description
+        })
 
         item.appendChild(img)
         template.appendChild(item)
     });
+
     imageContainer.appendChild(template)
 }
 
@@ -36,6 +49,11 @@ async function getPhotos(){
         alert(error)
     }
 }
+
+//check to see if scrolling near bottom of page, laod more photos
+window.addEventListener('scroll',()=>{
+    console.log('scrolled')
+})
 
 //On Load
 getPhotos();
