@@ -5,4 +5,4 @@ vs code extension
 - live server
 
 ## Project list
-[quote generator](/quote-generator)
+[quote generator](./quote-generator)
