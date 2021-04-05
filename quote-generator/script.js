@@ -7,22 +7,22 @@ const twitterBtn = document.querySelector("#twitter");
 const newQuoteBtn = document.querySelector("#new-quote");
 const loader = document.querySelector("#loader");
 
-
 let apiQuotes = [];
-// Show Loading
-const loading = () => {
+
+
+const showLoadingSpinner = () => {
     loader.hidden = false;
     quoteContainer.hidden = true;
 }
-// Hide Loading
-const complete = ()=> {
+
+const removeLoadingSpinner = ()=> {
     loader.hidden = true;
     quoteContainer.hidden = false;
 }
 
 //Show New Quote
 const newQuote = () => {
-    loading();
+    showLoadingSpinner();
     //Pick a random quote from apiQuote array
     const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)]
     //Check if Author field is black and replace it with 'unknown'
@@ -39,19 +39,19 @@ const newQuote = () => {
     }
 
     quoteText.textContent = quote.text;
-    complete();
+    removeLoadingSpinner();
 }
 
 //1 get quotes from api
 const getQuotes = async () => {
-    loading();
+    showLoadingSpinner();
     const apiUrl = 'https://type.fit/api/quotes'
     try {
         const response = await fetch(apiUrl);
         apiQuotes = await response.json();
         newQuote();
     } catch (error) {
-        alert(error.message);
+        getQuotes();
     }
 }
 
@@ -61,10 +61,10 @@ const tweetQuote = () => {
     const twitterUrl = `http://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}`;
     window.open(twitterUrl, '_blank',)
 }
+
 //Event Listeners
 newQuoteBtn.addEventListener('click',newQuote)
 twitterBtn.addEventListener('click',tweetQuote)
-
 
 // On Load
 getQuotes();
