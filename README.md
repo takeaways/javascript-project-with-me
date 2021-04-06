@@ -6,5 +6,6 @@ vs code extension
 
 ![infinite scroll](./images/scroll.png)
 ## Project list
-[1.quote generator](./quote-generator)
-[2.infinite scroll](./infinite-scroll)
+- [1.quote generator](./quote-generator)
+- [2.infinite scroll](./infinite-scroll)
+- [3.tell joke](./joke-teller)
