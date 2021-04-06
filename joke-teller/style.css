@@ -50,6 +50,10 @@ button:disabled{
   filter:brightness(30%);
 }
 
+audio{
+  display: none;
+}
+
 
 
 /* media: tablet or smaller*/
