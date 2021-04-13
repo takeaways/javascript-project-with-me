@@ -1,21 +1,17 @@
 import "./style.css";
-const video = document.querySelector('video')!;
+const video = document.querySelector('video')! as HTMLVideoElement;
 const progressRange = document.querySelector(".progress-range")! as HTMLDivElement;
 const progressBar = document.querySelector(".progress-bar")! as HTMLDivElement;
 const playBtn = document.querySelector("#play-btn")!;
-const vloumeIcon = document.querySelector("#volume-icon")!;
-const volumeRange = document.querySelector(".volume-range")!;
-const volumeBar = document.querySelector(".volume-bar")!;
+const volumeIcon = document.querySelector("#volume-icon")!;
+const volumeRange = document.querySelector(".volume-range")! as HTMLDivElement;
+const volumeBar = document.querySelector(".volume-bar")! as HTMLDivElement;
 const currentTime = document.querySelector(".time-elapsed")!;
 const dutation = document.querySelector(".time-duration")!;
 const fullscreenBtn = document.querySelector(".fullscreen")!;
 
 console.log(
-  video,
-  "-->",progressRange,
-  progressBar,
-  playBtn,
-  vloumeIcon,
+  volumeIcon,
   volumeRange,
   volumeBar,
   currentTime,
@@ -68,7 +64,26 @@ const setProgress = (e:MouseEvent) => {
 }
 
 // Volume Controls --------------------------- //
-
+const chageVolume = (e:MouseEvent) => {
+  let volume = e.offsetX / volumeRange.offsetWidth;
+  if(volume < 0.1){
+    volume = 0;
+  }
+  if(volume > 0.9){
+    volume = 1;
+  }
+  volumeBar.style.width = `${volume * 100}%`;
+  video.volume = volume;
+  // icon
+  volumeIcon.className = ``;
+  if(volume > 0.7){
+    volumeIcon.classList.add('fas','fa-volume-up')
+  }else if(volume < 0.7 && volume > 0){
+    volumeIcon.classList.add('fas', 'fa-volume-down');
+  }else if(volume === 0){
+    volumeIcon.classList.add('fas','fa-volume-off')
+  }
+}
 
 
 // Change Playback Speed -------------------- //
@@ -84,3 +99,4 @@ video.addEventListener('click',togglePlay);
 video.addEventListener('timeupdate',updateProgress);
 video.addEventListener('canplay',updateProgress);
 progressRange.addEventListener('click',setProgress);
+volumeRange.addEventListener('click',chageVolume)
