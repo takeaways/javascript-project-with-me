@@ -1,5 +1,5 @@
 :root {
-  --primary-color: dodgerblue;
+  --primary-color: rgb(142, 0, 181);
   --font-color: white;
 }
 
@@ -98,6 +98,7 @@ video {
   left: 15px;
   top: 15px;
   cursor: pointer;
+  z-index: 1;
   transition: height 0.1s ease-in-out;
 }
 
