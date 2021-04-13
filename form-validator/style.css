@@ -43,6 +43,7 @@ form{
 label{
   position: relative;
   bottom:3px;
+  text-transform: uppercase;
 }
 
 input{
@@ -53,7 +54,7 @@ input{
   border-radius: 5px;
   outline: none;
 
-  transition: all 3s;
+  transition: all 1s;
 }
 
 input:valid{
