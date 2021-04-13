@@ -1,38 +1,33 @@
-const toggleSwitch = document.querySelector('input[type="checkbox"]');
-const nav = document.querySelector('nav');
-const toggleIcon = document.querySelector('#toggle-icon');
-const image1 = document.querySelector('#image1')
-const image2 = document.querySelector('#image2')
-const image3 = document.querySelector('#image3')
-const textBox = document.querySelector('#text-box');
+const getDocument = (target) => document.querySelector(target);
 
-function darkMode(){
-    nav.style.backgroundColor = 'rgb(0 0 0 / 50%)';
-    textBox.style.backgroundColor = 'rgb(255 255 255 / 50%)';
-    toggleIcon.children[0].textContent = 'Dark Mode';
-    toggleIcon.children[1].classList.remove('fa-sun');
-    toggleIcon.children[1].classList.add('fa-moon');
-    image1.src = 'img/undraw_conceptual_idea_dark.svg'
+
+const toggleSwitch = getDocument('input[type="checkbox"]');
+const nav = getDocument('nav');
+const toggleIcon = getDocument('#toggle-icon');
+const image1 = getDocument('#image1')
+const image2 = getDocument('#image2')
+const image3 = getDocument('#image3')
+const textBox = getDocument('#text-box');
+
+
+
+function toggleDarkLightMode(isLight){
+    nav.style.backgroundColor = isLight ?'rgb(0 0 0 / 50%)'  : 'rgb(255 255 255 / 50%)' ;
+    textBox.style.backgroundColor = isLight ? 'rgb(255 255 255 / 50%)' : 'rgb(0 0 0 / 50%)';
+    toggleIcon.children[0].textContent = !isLight ? 'Light Mode' : 'Dark Mode';
+    !isLight ? toggleIcon.children[1].classList.remove('fa-moon') : toggleIcon.children[1].classList.remove('fa-sun');
+    !isLight ? toggleIcon.children[1].classList.add('fa-sun'): toggleIcon.children[1].classList.add('fa-moon');
 }
-
-function lightMode(){
-    nav.style.backgroundColor = 'rgb(255 255 255 / 50%)';
-    textBox.style.backgroundColor = 'rgb(0 0 0 / 50%)';
-    toggleIcon.children[0].textContent = 'Light Mode';
-    toggleIcon.children[1].classList.remove('fa-moon');
-    toggleIcon.children[1].classList.add('fa-sun');
-}
-
 
 const switchTheme = ({target:{checked}})=>{
     if(checked){
         document.documentElement.setAttribute('data-theme','dark')
         localStorage.setItem('theme','dark');
-        darkMode()
+        toggleDarkLightMode(true)
     }else{
         document.documentElement.setAttribute('data-theme','light')
         localStorage.setItem('theme','light');
-        lightMode()
+        toggleDarkLightMode(false)
     } 
 }
 
@@ -45,10 +40,10 @@ window.onload = ()=>{
 
         if(theme === "dark"){
             toggleSwitch.checked = true;
-            darkMode();
+            toggleDarkLightMode(true)
         }else{
             toggleSwitch.checked = false;
-            lightMode();
+            toggleDarkLightMode(false)
         }
     }
     
