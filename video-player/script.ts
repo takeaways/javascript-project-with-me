@@ -124,6 +124,8 @@ function openFullscreen(elem:any) {
   } else if (elem.msRequestFullscreen) { /* IE11 */
     elem.msRequestFullscreen();
   }
+
+  video.classList.add('video-fullscreen');
 }
 
 /* Close fullscreen */
@@ -136,6 +138,7 @@ function closeFullscreen() {
   } else if (doc.msExitFullscreen) { /* IE11 */
     doc.msExitFullscreen();
   }
+  video.classList.remove('video-fullscreen');
 }
 let fullscreen = false;
 const toggleFullScreen = () => {
