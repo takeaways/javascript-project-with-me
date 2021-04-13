@@ -10,7 +10,47 @@
     <script defer src="script.js"></script>
 </head>
 <body>
-    
-    <h1>hello world</h1>
+    <div class="container">
+        <h1>Sign Up Today!</h1>
+        <!-- form -->
+        <form id="form">
+            <!-- full name -->
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Full Name">
+            </div>
+            <!-- phone number -->
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="010-1234-5678">
+            </div>
+            <!--Email address  -->
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="hi@gmail.com">
+            </div>
+            <!-- Website URL -->
+            <div class="form-group">
+                <label for="website">Website URL</label>
+                <input type="url" id="website" placeholder="https://www.naver.com">
+            </div>
+            <!-- password -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Create Password">
+            </div>
+            <!-- confirm password -->
+            <div class="form-group">
+                <label for="password1">Confirm Password</label>
+                <input type="password" id="password1" placeholder="Confirm Password">
+            </div>
+            <!-- button -->
+            <button type="submit">Register</button>
+        </form>
+        <!-- Error / Success Message -->
+        <div class="message-container">
+            <h3 id="message">Don't Hesitate!</h3>
+        </div>
+    </div>
 </body>
 </html>
